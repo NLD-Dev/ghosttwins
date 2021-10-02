@@ -90,6 +90,9 @@ class KadeEngineData
 		if (FlxG.save.data.beatNormal == null)
 			FlxG.save.data.beatNormal = false;
 
+		if (FlxG.save.data.fcHell == null)
+			FlxG.save.data.fcHell = false;
+
 		Conductor.recalculateTimings();
 		PlayerSettings.player1.controls.loadKeyBinds();
 		KeyBinds.keyCheck();

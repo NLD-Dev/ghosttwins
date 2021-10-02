@@ -57,12 +57,14 @@ class DeathSubState extends MusicBeatState
 		{
 			leftState = true;
 				FlxG.switchState(new MainMenuState());
+				FlxG.sound.music.fadeOut(0, 0);
 	
 		}
 		if (controls.BACK)
 		{
 			leftState = true;
 				FlxG.switchState(new MainMenuState());
+				FlxG.sound.music.fadeOut(0, 0);
 			
 		}
 		super.update(elapsed);

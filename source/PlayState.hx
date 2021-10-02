@@ -275,6 +275,8 @@ class PlayState extends MusicBeatState
 				storyDifficultyText = "Hard";
 			case 3:
 				storyDifficultyText = "Echo";
+			case 4:
+				storyDifficultyText = "Hell";
 		}
 
 		iconRPC = SONG.player2;
@@ -724,7 +726,7 @@ class PlayState extends MusicBeatState
 		add(healthBar);
 
 		// Add Kade Engine watermark
-		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + (storyDifficulty == 2 ? "Hard" : storyDifficulty == 1 ? "Normal" : storyDifficulty == 3 ? "Echo" : "Easy") + (Main.watermarks ? " - KE " + MainMenuState.kadeEngineVer : ""), 16);
+		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + (storyDifficulty == 2 ? "Hard" : storyDifficulty == 1 ? "Normal" : storyDifficulty == 3 ? "Echo" : storyDifficulty == 4 ? "Hell" : "Easy") + (Main.watermarks ? " - KE " + MainMenuState.kadeEngineVer : ""), 16);
 		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		kadeEngineWatermark.scrollFactor.set();
 		add(kadeEngineWatermark);
@@ -2514,6 +2516,23 @@ class PlayState extends MusicBeatState
 							Application.current.window.title = "Vs Ghosttwins";
 						});
 					}else{
+						if(storyDifficulty == 4 && FlxG.save.data.fcHell == false){
+							if(misses == 0){
+								var a:Achievement = new Achievement('How', 'How the fuck.', 'fcHell', 'Nani');
+								add(a);
+								a.cameras = [camHUD];
+								new FlxTimer().start(8, function(tmr:FlxTimer)
+								{
+									FlxG.sound.playMusic(Paths.music('freakyMenu'));
+									FlxG.switchState(new MainMenuState());
+									Application.current.window.title = "Vs Ghosttwins";
+								});
+							}else{
+								FlxG.sound.playMusic(Paths.music('freakyMenu'));
+								FlxG.switchState(new MainMenuState());
+								Application.current.window.title = "Vs Ghosttwins";
+							}
+						}else{
 						if(storyDifficulty == 0 || storyDifficulty == 1 && FlxG.save.data.beatNormal == false && SONG.song.toLowerCase() == 'illustrious')
 						{
 								FlxG.sound.playMusic(Paths.music('funy', 'ghosttwins'));
@@ -2523,6 +2542,7 @@ class PlayState extends MusicBeatState
 							FlxG.sound.playMusic(Paths.music('freakyMenu'));
 								FlxG.switchState(new MainMenuState());
 								Application.current.window.title = "Vs Ghosttwins";
+						}
 						}
 					}
 
@@ -2574,8 +2594,12 @@ class PlayState extends MusicBeatState
 					if (storyDifficulty == 3)
 						difficulty = '-echo';
 
+					if (storyDifficulty == 4)
+						difficulty = '-hell';
+
 					trace('LOADING NEXT SONG');
 					trace(PlayState.storyPlaylist[0].toLowerCase() + difficulty);
+					startDialogue = true;
 
 					if (SONG.song.toLowerCase() == 'eggnog')
 					{

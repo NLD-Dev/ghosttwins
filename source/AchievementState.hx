@@ -21,8 +21,8 @@ using StringTools;
 
 class AchievementState extends MusicBeatState
 {
-	var songs:Array<String> = ['Party Started!', 'Finally peace.'];
-	var desc:Array<String> = ['Beat the week on Hard/Echo', 'Beat the week on Normal/Easy'];
+	var songs:Array<String> = ['Party Started!', 'Finally peace.', 'How.'];
+	var desc:Array<String> = ['Beat the week on Hard/Echo', 'Beat the week on Normal/Easy', 'FC Scuffle Hell'];
 
 	var selector:FlxText;
 	var curSelected:Int = 0;
@@ -90,6 +90,10 @@ class AchievementState extends MusicBeatState
 				icon.animation.curAnim.curFrame = 1;
 			}
 			if(i == 1 && FlxG.save.data.beatNormal)
+			{
+				icon.animation.curAnim.curFrame = 1;
+			}
+			if(i == 2 && FlxG.save.data.fcHell)
 			{
 				icon.animation.curAnim.curFrame = 1;
 			}

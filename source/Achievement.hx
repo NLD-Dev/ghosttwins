@@ -85,6 +85,10 @@ class Achievement extends FlxSpriteGroup
 		{
 			FlxG.save.data.beatNormal = true;
 		}
+		if(dataName == 'fcHell')
+		{
+			FlxG.save.data.fcHell = true;
+		}
 		new FlxTimer().start(4, function(tmr:FlxTimer)
 		{
 			FlxTween.tween(Obj,{y: FlxG.height + 1000},2,{ease: FlxEase.elasticInOut});

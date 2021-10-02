@@ -235,6 +235,8 @@ class FreeplayState extends MusicBeatState
 
 			trace(poop);
 
+			PlayState.startDialogue = true;
+
 			PlayState.SONG = Song.loadFromJson(poop, StringTools.replace(songs[curSelected].songName," ", "-").toLowerCase());
 			PlayState.isStoryMode = false;
 			PlayState.storyDifficulty = curDifficulty;
@@ -254,10 +256,18 @@ class FreeplayState extends MusicBeatState
 		if (curDifficulty > 3)
 			curDifficulty = 2;
 	}else{ 
+		if(songs[curSelected].songName == 'Scuffle')
+		{
+		if (curDifficulty < 0)
+			curDifficulty = 4;
+		if (curDifficulty > 4)
+			curDifficulty = 0;
+		}else{
 		if (curDifficulty < 0)
 			curDifficulty = 3;
 		if (curDifficulty > 3)
 			curDifficulty = 0;
+		}
 		}
 
 		#if !switch
@@ -278,6 +288,9 @@ class FreeplayState extends MusicBeatState
 			case 3:
 				diffText.text = "ECHO";
 				dif = "ECHO";
+			case 4:
+				diffText.text = "HELL";
+				dif = "HELL";
 		}
 	}
 	function changeDiffff(change:Int = 0)
@@ -289,10 +302,18 @@ class FreeplayState extends MusicBeatState
 		if (curDifficulty > 3)
 			curDifficulty = 2;
 		}else{ 
+		if(songs[curSelected].songName == 'Scuffle')
+		{
+		if (curDifficulty < 0)
+			curDifficulty = 4;
+		if (curDifficulty > 4)
+			curDifficulty = 0;
+		}else{
 		if (curDifficulty < 0)
 			curDifficulty = 3;
 		if (curDifficulty > 3)
 			curDifficulty = 0;
+		}
 		}
 
 		#if !switch
@@ -313,6 +334,9 @@ class FreeplayState extends MusicBeatState
 			case 3:
 				diffText.text = "ECHO";
 				dif = "ECHO";
+			case 4:
+				diffText.text = "HELL";
+				dif = "HELL";
 		}
 	}
 
