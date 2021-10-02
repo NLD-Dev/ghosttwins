@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="twinsDance1.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="vibeAnim0000" x="25" y="25" width="407" height="643" frameX="-69" frameY="0" frameWidth="525" frameHeight="701"/>
+	<SubTexture name="vibeAnim0001" x="25" y="25" width="407" height="643" frameX="-69" frameY="0" frameWidth="525" frameHeight="701"/>
+	<SubTexture name="vibeAnim0002" x="25" y="25" width="407" height="643" frameX="-69" frameY="0" frameWidth="525" frameHeight="701"/>
+	<SubTexture name="vibeAnim0003" x="472" y="25" width="497" height="610" frameX="-14" frameY="-1" frameWidth="525" frameHeight="701"/>
+	<SubTexture name="vibeAnim0004" x="1009" y="25" width="525" height="598" frameX="0" frameY="-58" frameWidth="525" frameHeight="701"/>
+	<SubTexture name="vibeAnim0005" x="1574" y="25" width="432" height="633" frameX="-44" frameY="-68" frameWidth="525" frameHeight="701"/>
+	<SubTexture name="vibeAnim0006" x="1574" y="25" width="432" height="633" frameX="-44" frameY="-68" frameWidth="525" frameHeight="701"/>
+	<SubTexture name="vibeAnim0007" x="25" y="708" width="407" height="638" frameX="-69" frameY="-51" frameWidth="525" frameHeight="701"/>
+	<SubTexture name="vibeAnim0008" x="25" y="708" width="407" height="638" frameX="-69" frameY="-51" frameWidth="525" frameHeight="701"/>
+	<SubTexture name="vibeAnim0009" x="25" y="708" width="407" height="638" frameX="-69" frameY="-51" frameWidth="525" frameHeight="701"/>
+	<SubTexture name="vibeAnim0010" x="472" y="708" width="408" height="652" frameX="-68" frameY="-33" frameWidth="525" frameHeight="701"/>
+	<SubTexture name="vibeAnim0011" x="472" y="708" width="408" height="652" frameX="-68" frameY="-33" frameWidth="525" frameHeight="701"/>
+</TextureAtlas>

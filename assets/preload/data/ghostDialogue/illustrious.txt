@@ -1,0 +1,31 @@
+:skip:one:true:false:
+:skip:onetwo:false:false:
+:Marie:oneone:false:flash:Eugh… hff..
+:skip:one:true:false:
+:skip:onethree:false:false:
+:observe:oneone:false:false:
+:skip:one:true:false:
+:skip:onefour:false:false:
+:observe:oneone:false:false:
+:Marie:two:true:false:Oh dear god- Tanner? 
+:Marie:three:true:false:Are you alright?
+:Tanner:four:true:false:H-Hi.. I'm fine..This.. weird ache in my chest is gone now, so that's great-
+:observe:five:true:false:
+:Marie:six:true:false:So have I. Heh.. I'm so sorry for earlier.. and all those years ago.. I should've saved you sooner..
+:observe:seven:true:false:
+:Tanner:eight:true:false:It's okay.. Thanks sis.
+:Boyfriend:nine:true:false:Bap
+:Marie:ten:true:false:Oopsie-! I almost forgot, Thank you so much BF! We finally have a chance to be alive again!
+:observe:eleven:true:false:
+:Girlfriend:stopit:false:false:Well, looks like the noise we made has attracted some people!
+:Boyfriend:stopit:false:false:Beep skebepbo!
+:Girlfriend:stopit:false:false:Well, we have an audience now.
+:Tanner:twelve:true:false:How about one last song? It would be our pleasure.
+:Boyfriend:stopit:false:false:Beep!
+:Tanner:stopit:false:false:Fantastic! 
+:Marie:thurteen:true:false:W-wait. Do we still have to share our mics? It was way easier to do that when we were just..ghosts-
+:Girlfriend:fourteen:true:false:Oh! Ya need a mic? 
+:Girlfriend:fiveteen:true:false:I got a spare!
+:Marie:stopit:false:false:Would ya look at that! Thanks gal!
+:Tanner:stopit:false:false:Well, are we ready?
+:T & M:sixteen:true:false:It's showtime!

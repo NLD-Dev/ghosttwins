@@ -1,0 +1,38 @@
+﻿:Girlfriend:one:true:true:Here we are!
+:Boyfriend:stopit:false:false:Nice classy place ya got here!
+:Girlfriend:stopit:false:false:Thanks, it belonged to my great-granddaddy who had trained others here.
+:skip:two:true:false:
+:Girlfriend:twoone:false:false:The choir had an accident here, so this place is probably haunted.
+:Boyfriend:twotwo:false:true:Aight then. Ahem-
+:skip:two:true:false:
+:skip:twoone:false:false:
+:Boyfriend:twothree:false:false:Yo! Any of you spooooky~ ghosts out here?! Come on to hear THE BEST CONCERT OF YOUR (un)LIFE!
+:skip:two:true:false:
+:skip:twofour:false:false:
+:Girlfriend:twothree:false:false:That was cute, BF.
+:skip:three:true:false:
+:Marie:threeone:false:true:TANNER, LOOK! PEOPLE!
+:Tanner:stopit:false:false:Who might it be no-
+:skip:four:true:false:
+:Marie:fourone:false:true:I BET THEY CAN HELP US!
+:Tanner:stopit:false:false:Marie, please.. Do you not remember the clo-
+:Girlfriend:five:true:false:Did you hear that?
+:skip:six:true:false:
+:Tanner:sixone:false:true:Hello there, kind folks!
+:Boyfriend:sixtwo:false:true:Bee bo bop
+:Girlfriend:stopit:false:false:Woah! Who are you two?
+:Tanner:seven:true:false:Ah, I suppose I should start,
+:Tanner:stopit:false:false: I am Tanner...and this is my older sister, Marie.
+:Marie:stopit:false:false:Nice to meet you!
+:Girlfriend:eight:true:false:Oh, well, you too! Im GF, and this is my boyfriend, BF.
+:Marie:eightone:false:true:I have no idea how your parents named you that, but can you help us ascend?
+:Tanner:stopit:false:false:Yes, as nobody else c-
+:Marie:nine:true:false:Like the guy with the stone jaw or the red goggles killer!
+:Girlfriend:ten:true:false:How do you think we can help?
+:skip:eleven:true:false:
+:Tanner:elevenone:false:true:Perhaps a song is in order?
+:Girlfriend:stopit:false:false:BF should be able to provide that!
+:Boyfriend:stopit:false:false:Beep!
+:skip:twelve:true:false:
+:observe:twelveone:false:false:
+:T & M:thurteen:true:false:SHOW US WHAT YOU'VE GOT!

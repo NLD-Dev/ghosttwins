@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="menu-assets2.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="AchievementsOff0000" x="0" y="0" width="497" height="270"/>
+	<SubTexture name="AchievementsOn0000" x="507" y="0" width="495" height="273"/>
+	<SubTexture name="FreeplayOff0000" x="0" y="283" width="428" height="199"/>
+	<SubTexture name="FreeplayOn0000" x="438" y="283" width="417" height="170"/>
+	<SubTexture name="StoryModeOff0000" x="0" y="492" width="296" height="187"/>
+	<SubTexture name="StoryModeOn0000" x="306" y="492" width="291" height="182"/>
+</TextureAtlas>

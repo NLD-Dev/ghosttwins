@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="GOOP_assets.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="arrow static instantie 10000" x="10" y="10" width="155" height="158"/>
+	<SubTexture name="arrow static instantie 20000" x="205" y="10" width="157" height="155"/>
+	<SubTexture name="arrow static instantie 30000" x="402" y="10" width="155" height="157"/>
+	<SubTexture name="arrow static instantie 40000" x="597" y="10" width="157" height="154"/>
+	<SubTexture name="blue hold end instantie 10000" x="794" y="10" width="51" height="88"/>
+	<SubTexture name="blue hold piece instantie 10000" x="885" y="10" width="51" height="44"/>
+	<SubTexture name="blue instantie 10000" x="10" y="208" width="158" height="170"/>
+	<SubTexture name="green hold end instantie 10000" x="208" y="208" width="51" height="90"/>
+	<SubTexture name="green hold piece instantie 10000" x="299" y="208" width="51" height="44"/>
+	<SubTexture name="green instantie 10000" x="390" y="208" width="158" height="184"/>
+	<SubTexture name="pruple end hold instantie 10000" x="588" y="208" width="51" height="76"/>
+	<SubTexture name="purple hold piece instantie 10000" x="679" y="208" width="51" height="44"/>
+	<SubTexture name="purple instantie 10000" x="770" y="208" width="154" height="174"/>
+	<SubTexture name="red hold end instantie 10000" x="10" y="432" width="53" height="90"/>
+	<SubTexture name="red hold piece instantie 10000" x="103" y="432" width="51" height="44"/>
+	<SubTexture name="red instantie 10000" x="194" y="432" width="155" height="174"/>
+</TextureAtlas>

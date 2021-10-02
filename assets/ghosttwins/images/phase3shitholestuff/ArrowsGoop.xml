@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ArrowsGoop.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Down0000" x="0" y="0" width="169" height="255"/>
+	<SubTexture name="Left0000" x="194" y="0" width="158" height="217"/>
+	<SubTexture name="Right0000" x="377" y="0" width="214" height="297"/>
+	<SubTexture name="Up0000" x="616" y="0" width="206" height="284"/>
+</TextureAtlas>

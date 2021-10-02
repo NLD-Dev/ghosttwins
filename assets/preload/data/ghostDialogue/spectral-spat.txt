@@ -1,0 +1,18 @@
+:Tanner:one:true:false:Well that was certainly fun! 
+:Marie:stopit:false:false:Yeah!! Thanks for ya help boyfriend!! 
+:Boyfriend:stopit:false:false:Beep!! 
+:Tanner:stopit:false:false:Well, We'll be going now! 
+:skip:two:true:false:
+:Marie:twoone:false:true:Uh-
+:Tanner:stopit:false:false:Marie. You said this time it'd work. 
+:Marie:stopit:false:false:Give it a few secs tan! 
+:skip:two:true:false:
+:Tanner:twotwo:false:false:No!! We have just wasted our time again! 
+:Tanner:stopit:false:false:You have no clue what your talking about! 
+:skip:two:true:false:
+:Marie:twothree:false:false:Stop bein such a downer!! 
+:Marie:stopit:false:false:It's your fault for not trustin me! 
+:skip:two:true:false:
+:Tanner:twofour:false:false:MY fault?! 
+:Boyfriend:three:true:false:Beep!
+:T & M:four:true:false:HUSH!

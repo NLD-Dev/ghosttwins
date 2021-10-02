@@ -1,0 +1,18 @@
+:Tanner:one:true:false:Look, this is going nowhere. Let's just-
+:Marie:stopit:false:false:No!! It HAS to work now! I'm sure of it!
+:Tanner:two:true:false:Marie, could you stop interrupting me and listen?! Like, just because you're only 4 minutes older, doesn't mean you have to boss me around all the time!
+:Marie:three:true:false:Me?! Bossy?! You're the one that is always complaining so why don't you stop being upset and give this a chance?!
+:Tanner:stopit:false:false:We've been stuck here for decades! OF COURSE I'M UPSET!
+:Boyfriend:four:true:false:B- Beep skidoo?!
+:Girlfriend:stopit:false:false:Hey.. Uh.. guys?-
+:Tanner:five:true:false:I'm so sick of having this false hope for this long! 
+:Marie:stopit:false:false:HEY! I'VE BEEN TRYING MY BEST FOR THE BOTH OF US!
+:Tanner:six:true:false:WELL, MAYBE YOU AREN'T TRYING HARD ENOUGH!
+:observe:seven:true:shake:
+:Boyfriend:eight:true:false:Bap-?!
+:Tanrie:nine:true:false:...
+:Tanrie:ten:true:false:Wh… what.. h-huh..?!
+:Tanrie:eleven:true:false:T-This… isn't.. supposed to..
+:Tanrie:stopit:false:false:It... h-hurts..!
+:Girlfriend:twelve:true:false:Go BF! Just keep singing!
+:Boyfriend:thurteen:true:false:Bop beep bo!

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="menu-assets.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="DonateOff0000" x="0" y="0" width="426" height="163"/>
+	<SubTexture name="DonateOn0000" x="476" y="0" width="426" height="163"/>
+	<SubTexture name="PlayOff0000" x="952" y="0" width="323" height="163"/>
+	<SubTexture name="PlayOn0000" x="1300" y="0" width="322" height="162"/>
+	<SubTexture name="SettingsOff0000" x="0" y="188" width="470" height="169"/>
+	<SubTexture name="SettingsOn0000" x="495" y="188" width="470" height="148"/>
+	<SubTexture name="SideHolder0000" x="990" y="188" width="714" height="571"/>
+</TextureAtlas>
