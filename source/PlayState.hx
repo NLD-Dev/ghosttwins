@@ -1,4 +1,4 @@
-package;
+﻿package;
 
 import flixel.input.keyboard.FlxKey;
 import haxe.Exception;
@@ -81,19 +81,22 @@ class PlayState extends MusicBeatState
 	public static var bads:Int = 0;
 	public static var goods:Int = 0;
 	public static var sicks:Int = 0;
+	var hitss:Int;
+	public static var accuracySHIT:Float = 0.51;
 	public static var f = 0.0;
 	public static var f2 = 0.0;
 	public static var w:Bool = false;
 	public static var big:Bool = false;
 	public static var konami:Int = 0;
+	public static var didKonami:Bool = false;
 	public static var timer:Int = 0;
 
 	public static var songPosBG:FlxSprite;
 	public static var songPosBar:FlxBar;
 
-
 	public static var rep:Replay;
 	public static var loadRep:Bool = false;
+	public static var FCd:Array<Bool> = [false, false, false, false];
 
 	public static var noteBools:Array<Bool> = [false, false, false, false];
 
@@ -306,7 +309,7 @@ class PlayState extends MusicBeatState
 		detailsPausedText = "Paused - " + detailsText;
 
 		// Updating Discord Rich Presence.
-		DiscordClient.changePresence(detailsText + " " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracy), "\nAcc: " + HelperFunctions.truncateFloat(accuracy, 2) + "% | Score: " + songScore + " | Misses: " + misses  , iconRPC);
+		DiscordClient.changePresence(detailsText + " " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracySHIT), "\nAcc: " + Math.floor(Std.int(accuracySHIT)*100) + "% | Score: " + songScore + " | Misses: " + misses  , iconRPC);
 		#end
 
 
@@ -558,6 +561,8 @@ class PlayState extends MusicBeatState
 					FlxG.sound.music.fadeOut(0, 0);
 					FlxG.switchState(new ClownSubState());
 				#end
+			case 'kids':
+				dad.y -= 420;
 		}
 
 		if(SONG.song.toLowerCase() == 'spectral-spat'){
@@ -612,6 +617,12 @@ class PlayState extends MusicBeatState
 				gf.y += 300;
 		}
 
+
+		switch (SONG.player1)
+		{
+			case 'kids':
+				boyfriend.y -= 160;
+		}
 		add(gf);
 
 		// Shitty layering but whatev it works LOL
@@ -624,8 +635,8 @@ class PlayState extends MusicBeatState
 			dadtwo.alpha = 0;
 		}
 		if(SONG.song.toLowerCase() == 'illustrious'){
+		add(dadthree);
 			add(dadtwo);
-			add(dadthree);
 		}
 		add(boyfriend);
 
@@ -1118,7 +1129,7 @@ class PlayState extends MusicBeatState
 		
 		#if windows
 		// Updating Discord Rich Presence (with Time Left)
-		DiscordClient.changePresence(detailsText + " " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracy), "\nAcc: " + HelperFunctions.truncateFloat(accuracy, 2) + "% | Score: " + songScore + " | Misses: " + misses  , iconRPC);
+		DiscordClient.changePresence(detailsText + " " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracySHIT), "\nAcc: " + Math.floor(Std.int(accuracySHIT)*100) + "% | Score: " + songScore + " | Misses: " + misses  , iconRPC);
 		#end
 	}
 
@@ -1418,7 +1429,7 @@ class PlayState extends MusicBeatState
 			}
 
 			#if windows
-			DiscordClient.changePresence("PAUSED on " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracy), "Acc: " + HelperFunctions.truncateFloat(accuracy, 2) + "% | Score: " + songScore + " | Misses: " + misses  , iconRPC);
+			DiscordClient.changePresence("PAUSED on " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracySHIT), "Acc: " + Math.floor(Std.int(accuracySHIT)*100) + "% | Score: " + songScore + " | Misses: " + misses  , iconRPC);
 			#end
 			if (!startTimer.finished)
 				startTimer.active = false;
@@ -1443,11 +1454,11 @@ class PlayState extends MusicBeatState
 			#if windows
 			if (startTimer.finished)
 			{
-				DiscordClient.changePresence(detailsText + " " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracy), "\nAcc: " + HelperFunctions.truncateFloat(accuracy, 2) + "% | Score: " + songScore + " | Misses: " + misses, iconRPC, true, songLength - Conductor.songPosition);
+				DiscordClient.changePresence(detailsText + " " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracySHIT), "\nAcc: " + Math.floor(Std.int(accuracySHIT)*100) + "% | Score: " + songScore + " | Misses: " + misses, iconRPC, true, songLength - Conductor.songPosition);
 			}
 			else
 			{
-				DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracy), iconRPC);
+				DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracySHIT), iconRPC);
 			}
 			#end
 		}
@@ -1466,7 +1477,7 @@ class PlayState extends MusicBeatState
 		vocals.play();
 
 		#if windows
-		DiscordClient.changePresence(detailsText + " " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracy), "\nAcc: " + HelperFunctions.truncateFloat(accuracy, 2) + "% | Score: " + songScore + " | Misses: " + misses  , iconRPC);
+		DiscordClient.changePresence(detailsText + " " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracySHIT), "\nAcc: " + Math.floor(Std.int(accuracySHIT)*100) + "% | Score: " + songScore + " | Misses: " + misses  , iconRPC);
 		#end
 	}
 
@@ -1598,7 +1609,7 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
-		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,maxNPS,accuracy);
+		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,maxNPS,accuracySHIT);
 		if (!FlxG.save.data.accuracyDisplay)
 			scoreTxt.text = "Score: " + songScore;
 
@@ -1711,7 +1722,7 @@ class PlayState extends MusicBeatState
 		#if debug
 		if (FlxG.keys.justPressed.EIGHT)
 		{
-			FlxG.switchState(new AnimationDebug(SONG.player2));
+			FlxG.switchState(new AnimationDebug(SONG.player1));
 			#if windows
 			if (luaModchart != null)
 			{
@@ -1997,9 +2008,10 @@ class PlayState extends MusicBeatState
 			camera.shake(0.035, 0.5);
 			openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y, konami));
 			konami = 0;
+			didKonami = true;
 			#if windows
 			// Game Over doesn't get his own variable because it's only used here
-			DiscordClient.changePresence("GAME OVER -- " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracy),"\nAcc: " + HelperFunctions.truncateFloat(accuracy, 2) + "% | : " + songScore + " | Misses: " + misses  , iconRPC);
+			DiscordClient.changePresence("GAME OVER -- " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracySHIT),"\nAcc: " + Math.floor(Std.int(accuracySHIT)*100) + "% | : " + songScore + " | Misses: " + misses  , iconRPC);
 			#end
 
 			// FlxG.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y, konami));
@@ -2019,10 +2031,11 @@ class PlayState extends MusicBeatState
 		
 					openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y, konami));
 					konami = 0;
+					didKonami = true;
 		
 					#if windows
 					// Game Over doesn't get his own variable because it's only used here
-					DiscordClient.changePresence("GAME OVER -- " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracy),"\nAcc: " + HelperFunctions.truncateFloat(accuracy, 2) + "% | Score: " + songScore + " | Misses: " + misses  , iconRPC);
+					DiscordClient.changePresence("GAME OVER -- " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracySHIT),"\nAcc: " + Math.floor(Std.int(accuracySHIT)*100) + "% | Score: " + songScore + " | Misses: " + misses  , iconRPC);
 					#end
 		
 					// FlxG.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
@@ -2498,23 +2511,50 @@ class PlayState extends MusicBeatState
 
 				storyPlaylist.remove(storyPlaylist[0]);
 
+				DeathSubState.accuracy = accuracySHIT;
+
+				if((storyDifficulty == 2 || storyDifficulty == 3) && misses == 0){
+					switch(SONG.song.toLowerCase()){
+						case 'hat-tip':
+							FCd[0] = true;
+						case 'spectral-spat':
+							FCd[1] = true;
+						case 'scuffle':
+							FCd[2] = true;
+						case 'illustrious':
+							FCd[3] = true;
+					}
+				}
+
 				if (storyPlaylist.length <= 0)
 				{
 
 					transIn = FlxTransitionableState.defaultTransIn;
 					transOut = FlxTransitionableState.defaultTransOut;
 
-					if(storyDifficulty == 2 || storyDifficulty == 3 && FlxG.save.data.beatEcho == false && SONG.song.toLowerCase() == 'illustrious')
+
+					if(storyDifficulty == 2 || storyDifficulty == 3 && SONG.song.toLowerCase() == 'illustrious')
 					{
-						var a:Achievement = new Achievement('Party Started!', 'Wooo!', 'beatEcho', '[FREEPLAY UNLOCKED]');
-						add(a);
-						a.cameras = [camHUD];
-						new FlxTimer().start(8, function(tmr:FlxTimer)
-						{
-							FlxG.sound.playMusic(Paths.music('freakyMenu'));
-							FlxG.switchState(new MainMenuState());
+						if(FCd[0] == true && FCd[1] == true && FCd[2] == true && FCd[3] == true){
+							var a:Achievement = new Achievement('FC Echo', 'Poggers.', 'echoFC', '=)');
+							add(a);
+							a.cameras = [camHUD];
+
+							new FlxTimer().start(4, function(tmr:FlxTimer)
+							{
+								DeathSubState.ending = 'good';
+								DeathSubState.inThing = true;
+
+								FlxG.switchState(new DeathSubState());
+								Application.current.window.title = "Vs Ghosttwins";
+							});
+						}else{
+							DeathSubState.ending = 'good';
+							DeathSubState.inThing = true;
+
+							FlxG.switchState(new DeathSubState());
 							Application.current.window.title = "Vs Ghosttwins";
-						});
+						}
 					}else{
 						if(storyDifficulty == 4 && FlxG.save.data.fcHell == false){
 							if(misses == 0){
@@ -2535,11 +2575,16 @@ class PlayState extends MusicBeatState
 						}else{
 						if(storyDifficulty == 0 || storyDifficulty == 1 && FlxG.save.data.beatNormal == false && SONG.song.toLowerCase() == 'illustrious')
 						{
+								if(accuracySHIT < 0.61 && DeathSubState.ending == 'neutral')
+									DeathSubState.ending == 'bad';
+
+								DeathSubState.inThing = true;
+
 								FlxG.sound.playMusic(Paths.music('funy', 'ghosttwins'));
 								FlxG.switchState(new DeathSubState());
 								Application.current.window.title = "Vs Ghosttwins";
 						}else{
-							FlxG.sound.playMusic(Paths.music('freakyMenu'));
+								FlxG.sound.playMusic(Paths.music('freakyMenu'));
 								FlxG.switchState(new MainMenuState());
 								Application.current.window.title = "Vs Ghosttwins";
 						}
@@ -2574,6 +2619,11 @@ class PlayState extends MusicBeatState
 					if (storyDifficulty == 0){
 						difficulty = '-easy';
 						if(SONG.song.toLowerCase() == 'scuffle'){
+							if(accuracySHIT < 0.61 && DeathSubState.ending == 'neutral')
+									DeathSubState.ending == 'bad';
+
+							DeathSubState.inThing = true;
+
 							FlxG.sound.playMusic(Paths.music('funy', 'ghosttwins'));
 							FlxG.switchState(new DeathSubState());
 							Application.current.window.title = "Vs Ghosttwins";
@@ -2582,6 +2632,11 @@ class PlayState extends MusicBeatState
 
 					if(storyDifficulty == 1){
 						if(SONG.song.toLowerCase() == 'scuffle'){
+							if(accuracySHIT < 0.61 && DeathSubState.ending == 'neutral')
+									DeathSubState.ending == 'bad';
+							
+							DeathSubState.inThing = true;
+
 							FlxG.sound.playMusic(Paths.music('funy', 'ghosttwins'));
 							FlxG.switchState(new DeathSubState());
 							Application.current.window.title = "Vs Ghosttwins";
@@ -2627,6 +2682,11 @@ class PlayState extends MusicBeatState
 					}else{
 						if(SONG.song.toLowerCase() == 'scuffle')
 						{
+							if(accuracySHIT < 0.61 && DeathSubState.ending == 'neutral')
+									DeathSubState.ending == 'bad';
+
+							DeathSubState.inThing = true;
+							
 							FlxG.switchState(new DeathSubState());
 						}else
 						PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + difficulty, PlayState.storyPlaylist[0]);
@@ -2641,7 +2701,17 @@ class PlayState extends MusicBeatState
 			else
 			{
 				trace('WENT BACK TO FREEPLAY??');
+				if(SONG.song.toLowerCase() == 'scuffle' && storyDifficulty == 4){
+					var a:Achievement = new Achievement('How', 'How the fuck.', 'fcHell', 'Nani');
+					add(a);
+					a.cameras = [camHUD];
+					new FlxTimer().start(8, function(tmr:FlxTimer)
+					{
+						FlxG.switchState(new FreeplayState());
+					});
+				}else
 				FlxG.switchState(new FreeplayState());
+
 				Application.current.window.title = "Vs Ghosttwins";
 			}
 		}
@@ -2747,6 +2817,8 @@ class PlayState extends MusicBeatState
 	
 			songScore += Math.round(score);
 			songScoreDef += Math.round(ConvertScore.convertScore(noteDiff));
+			hitss++;
+			recalAcc();
 	
 			/* if (combo > 60)
 					daRating = 'sick';
@@ -3007,6 +3079,7 @@ class PlayState extends MusicBeatState
 				if (controls.RIGHT_P){if(konami == 5 || konami == 7){konami += 1;}else{konami = 0;}}
 				if(konami == 8){
 					health = -1;
+					didKonami = true;
 				}
 
 				// Prevent player input if botplay is on
@@ -3195,6 +3268,7 @@ class PlayState extends MusicBeatState
 			}
 			combo = 0;
 			misses++;
+			recalAcc();
 
 			//var noteDiff:Float = Math.abs(daNote.strumTime - Conductor.songPosition);
 			//var wife:Float = EtternaFunctions.wife3(noteDiff, FlxG.save.data.etternaMode ? 1 : 1.7);
@@ -3488,6 +3562,18 @@ class PlayState extends MusicBeatState
 
 	}
 
+	function recalAcc():Void{
+		accuracySHIT = songScore / ((hitss + misses) * 350);
+
+		if(accuracySHIT < 0)
+			accuracySHIT = 0;
+
+		if(accuracySHIT > 1)
+			accuracySHIT = 1;
+
+		trace(accuracySHIT);
+	}
+
 	function trainReset():Void
 	{
 		if(FlxG.save.data.distractions){
@@ -3542,7 +3628,7 @@ class PlayState extends MusicBeatState
 		songLength = FlxG.sound.music.length;
 
 		// Updating Discord Rich Presence (with Time Left)
-		DiscordClient.changePresence(detailsText + " " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracy), "Acc: " + HelperFunctions.truncateFloat(accuracy, 2) + "% | Score: " + songScore + " | Misses: " + misses  , iconRPC,true,  songLength - Conductor.songPosition);
+		DiscordClient.changePresence(detailsText + " " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracySHIT), "Acc: " + Math.floor(Std.int(accuracySHIT)*100) + "% | Score: " + songScore + " | Misses: " + misses  , iconRPC,true,  songLength - Conductor.songPosition);
 		#end
 
 	}

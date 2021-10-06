@@ -4,6 +4,6 @@ class HelperFunctions
 		var num = number;
 		num = num * Math.pow(10, precision);
 		num = Math.round( num ) / Math.pow(10, precision);
-		return num;
+		return Math.floor(num*100);
 	}
 }

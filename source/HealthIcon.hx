@@ -45,7 +45,7 @@ class HealthIcon extends FlxSprite
 				animation.add('bf-car', [0, 1, 2, 3, 4], 0, false, isPlayer);
 				animation.add('bf-christmas', [0, 1, 2, 3, 4], 0, false, isPlayer);
 				animation.add('bf-pixel', [26, 27, 28], 0, false, isPlayer);
-				animation.add('spooky', [11, 12, 13], 0, false, isPlayer);
+				animation.add('kids', [11, 12, 13], 0, false, isPlayer);
 				animation.add('pico', [17, 18, 19], 0, false, isPlayer);
 				animation.add('mom', [20, 21, 22], 0, false, isPlayer);
 				animation.add('mom-car', [20, 21, 22], 0, false, isPlayer);

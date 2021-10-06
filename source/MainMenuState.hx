@@ -140,6 +140,10 @@ class MainMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		PlayState.FCd[0] = false;
+		PlayState.FCd[1] = false;
+		PlayState.FCd[2] = false;
+		PlayState.FCd[3] = false;
 		curThing += 1;
 		if(curThing == 70){
 			FlxTween.tween(FlxG.camera, {zoom:1.03}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});

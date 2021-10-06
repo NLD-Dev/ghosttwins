@@ -21,8 +21,8 @@ using StringTools;
 
 class AchievementState extends MusicBeatState
 {
-	var songs:Array<String> = ['Party Started!', 'Finally peace.', 'How.'];
-	var desc:Array<String> = ['Beat the week on Hard/Echo', 'Beat the week on Normal/Easy', 'FC Scuffle Hell'];
+	var songs:Array<String> = ['Party Started!', 'Finally peace.', 'How.', 'FC Echo', 'Goop', 'Canceled', 'Balls in yo jaws.'];
+	var desc:Array<String> = ['Beat the week on Hard/Echo', 'Beat the week on Normal/Easy', 'FC Scuffle Hell', 'FC Full Week [Echo Difficulty]', 'Get the bad ending', 'sex', 'Up Up Down Down Left Right Left Right'];
 
 	var selector:FlxText;
 	var curSelected:Int = 0;
@@ -94,6 +94,22 @@ class AchievementState extends MusicBeatState
 				icon.animation.curAnim.curFrame = 1;
 			}
 			if(i == 2 && FlxG.save.data.fcHell)
+			{
+				icon.animation.curAnim.curFrame = 1;
+			}
+			if(i == 3 && FlxG.save.data.echoFC)
+			{
+				icon.animation.curAnim.curFrame = 1;
+			}
+			if(i == 4 && FlxG.save.data.badEnd)
+			{
+				icon.animation.curAnim.curFrame = 1;
+			}
+			if(i == 5 && FlxG.save.data.canceled)
+			{
+				icon.animation.curAnim.curFrame = 1;
+			}
+			if(i == 6 && FlxG.save.data.balls)
 			{
 				icon.animation.curAnim.curFrame = 1;
 			}

@@ -35,6 +35,9 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		Conductor.songPosition = 0;
 
+		var a:Achievement = new Achievement('Balls', 'Can i put my balls', 'balls', 'in yo jawssss');
+		add(a);
+
 		bf = new Boyfriend(x, y, daBf);
 		add(bf);
 		bf2 = new FlxSprite(x, y);

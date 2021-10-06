@@ -93,6 +93,18 @@ class KadeEngineData
 		if (FlxG.save.data.fcHell == null)
 			FlxG.save.data.fcHell = false;
 
+		if (FlxG.save.data.echoFC == null)
+			FlxG.save.data.echoFC = false;
+
+		if (FlxG.save.data.badEnd == null)
+			FlxG.save.data.badEnd = false;
+
+		if (FlxG.save.data.canceled == null)
+			FlxG.save.data.canceled = false;
+
+		if (FlxG.save.data.balls == null)
+			FlxG.save.data.balls = false;
+
 		Conductor.recalculateTimings();
 		PlayerSettings.player1.controls.loadKeyBinds();
 		KeyBinds.keyCheck();

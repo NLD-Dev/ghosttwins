@@ -77,17 +77,22 @@ class Achievement extends FlxSpriteGroup
 		WhatIgetThing.setFormat("VCR OSD Mono", 13, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(WhatIgetThing);
 		FlxTween.tween(WhatIgetThing,{y: FlxG.height - 65},2,{ease: FlxEase.elasticInOut});
-		if(dataName == 'beatEcho')
-		{
-			FlxG.save.data.beatEcho = true;
-		}
-		if(dataName == 'beatNormal')
-		{
-			FlxG.save.data.beatNormal = true;
-		}
-		if(dataName == 'fcHell')
-		{
-			FlxG.save.data.fcHell = true;
+
+		switch(dataName){
+			case 'beatEcho':
+				FlxG.save.data.beatEcho = true;
+			case 'beatNormal':
+				FlxG.save.data.beatNormal = true;
+			case 'fcHell':
+				FlxG.save.data.fcHell = true;
+			case 'echoFC':
+				FlxG.save.data.echoFC = true;
+			case 'badEnd':
+				FlxG.save.data.badEnd = true;
+			case 'canceled':
+				FlxG.save.data.canceled = true;
+			case 'balls':
+				FlxG.save.data.balls = true;
 		}
 		new FlxTimer().start(4, function(tmr:FlxTimer)
 		{

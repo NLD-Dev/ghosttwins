@@ -14,30 +14,21 @@ class Ratings
             ranking = "(GFC)";
         else if (PlayState.misses == 0) // Regular FC
             ranking = "(FC)";
-        else if (PlayState.misses < 10) // Single Digit Combo Breaks
-            ranking = "(SDCB)";
-        else
-            ranking = "(Clear)";
+        else 
+            ranking = "";
 
         // WIFE TIME :)))) (based on Wife3)
 
         var wifeConditions:Array<Bool> = [
-            accuracy >= 99.9935, // AAAAA
-            accuracy >= 99.980, // AAAA:
-            accuracy >= 99.970, // AAAA.
-            accuracy >= 99.955, // AAAA
-            accuracy >= 99.90, // AAA:
-            accuracy >= 99.80, // AAA.
-            accuracy >= 99.70, // AAA
-            accuracy >= 99, // AA:
-            accuracy >= 96.50, // AA.
-            accuracy >= 93, // AA
-            accuracy >= 90, // A:
-            accuracy >= 85, // A.
-            accuracy >= 80, // A
-            accuracy >= 70, // B
-            accuracy >= 60, // C
-            accuracy < 60 // D
+            accuracy >= 1, // AAAAA
+            accuracy >= 0.9, // AAAA:
+            accuracy >= 0.8, // AAAA.
+            accuracy >= 0.7, // AAAA
+            accuracy >= 0.6, // AAA:
+            accuracy >= 0.5, // AAA.
+            accuracy >= 0.4, // AAA
+            accuracy >= 0.2, // AA:
+            accuracy >= 0, // AA.
         ];
 
         for(i in 0...wifeConditions.length)
@@ -48,37 +39,21 @@ class Ratings
                 switch(i)
                 {
                     case 0:
-                        ranking += " AAAAA";
+                        ranking += " S";
                     case 1:
-                        ranking += " AAAA:";
-                    case 2:
-                        ranking += " AAAA.";
-                    case 3:
-                        ranking += " AAAA";
-                    case 4:
-                        ranking += " AAA:";
-                    case 5:
-                        ranking += " AAA.";
-                    case 6:
-                        ranking += " AAA";
-                    case 7:
-                        ranking += " AA:";
-                    case 8:
-                        ranking += " AA.";
-                    case 9:
                         ranking += " AA";
-                    case 10:
-                        ranking += " A:";
-                    case 11:
-                        ranking += " A.";
-                    case 12:
+                    case 2:
                         ranking += " A";
-                    case 13:
+                    case 3:
+                        ranking += " B+";
+                    case 4:
                         ranking += " B";
-                    case 14:
+                    case 5:
                         ranking += " C";
-                    case 15:
+                    case 6:
                         ranking += " D";
+                    case 7:
+                        ranking += " F";
                 }
                 break;
             }
@@ -134,8 +109,8 @@ class Ratings
         return 
         (FlxG.save.data.npsDisplay ? "NPS: " + nps + " (Max " + maxNPS + ")" + (!FlxG.save.data.botplay ? " | " : "") : "") + (!FlxG.save.data.botplay ?	// NPS Toggle
         "Score:" + (Conductor.safeFrames != 10 ? score + " (" + scoreDef + ")" : "" + score) + 									// Score
-        " | Combo Breaks:" + PlayState.misses + 																				// Misses/Combo Breaks
-        " | Accuracy:" + (FlxG.save.data.botplay ? "N/A" : HelperFunctions.truncateFloat(accuracy, 2) + " %") +  				// Accuracy
+        " | Misses:" + PlayState.misses + 																				// Misses/Combo Breaks
+        " | Accuracy:" + (FlxG.save.data.botplay ? "N/A" : Math.floor(PlayState.accuracySHIT*100) + " %") +  				// Accuracy
         " | " + GenerateLetterRank(accuracy) : ""); 																			// Letter Rank
     }
 }

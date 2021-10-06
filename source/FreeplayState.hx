@@ -228,7 +228,7 @@ class FreeplayState extends MusicBeatState
 			FlxG.switchState(new WhereUGoinState());
 		}
 
-		if (accepted)
+		if (accepted && !songs[curSelected].songName.startsWith('--'))
 		{
 			
 			var poop:String = Highscore.formatSong(StringTools.replace(songs[curSelected].songName," ", "-").toLowerCase(), curDifficulty);
@@ -365,7 +365,8 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		#if PRELOAD_ALL
-		FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
+		if(!songs[curSelected].songName.startsWith('--'))
+			FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
 		#end
 
 		var bullShit:Int = 0;
@@ -373,21 +374,29 @@ class FreeplayState extends MusicBeatState
 		for (i in 0...iconArray.length)
 		{
 			iconArray[i].alpha = 0.6;
+			if(songs[i].songName.startsWith('--'))
+				iconArray[i].alpha = 0;
 		}
 
 		iconArray[curSelected].alpha = 1;
+
+		if(songs[curSelected].songName.startsWith('--'))
+			iconArray[curSelected].alpha = 0;
 
 		for (item in grpSongs.members)
 		{
 			item.targetY = bullShit - curSelected;
 			bullShit++;
 
-			item.alpha = 0.6;
+			if(!songs[curSelected].songName.startsWith('--'))
+				item.alpha = 0.6;
+
 			// item.setGraphicSize(Std.int(item.width * 0.8));
 
 			if (item.targetY == 0)
 			{
-				item.alpha = 1;
+				if(!songs[curSelected].songName.startsWith('--'))
+					item.alpha = 1;
 				// item.setGraphicSize(Std.int(item.width));
 			}
 		}

@@ -921,6 +921,14 @@ class ChartingState extends MusicBeatState
 		{
 			changeNoteSustain(-Conductor.stepCrochet);
 		}
+		if (FlxG.keys.justPressed.R)
+		{
+			changeNoteType(1);
+		}
+		if (FlxG.keys.justPressed.T)
+		{
+			changeNoteType(2);
+		}
 
 		if (FlxG.keys.justPressed.TAB)
 		{
@@ -1083,6 +1091,19 @@ class ChartingState extends MusicBeatState
 
 		updateNoteUI();
 		updateGrid();
+	}
+
+	function changeNoteType(value:Float):Void
+	{
+		if (curSelectedNote != null)
+		{
+			if (curSelectedNote[4] != null)
+			{
+				curSelectedNote[4] = value;
+			}
+		}
+
+		updateNoteUI();
 	}
 
 	override function beatHit() 
